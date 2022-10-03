@@ -31,8 +31,12 @@ html {
   color: white;
   background: rgba(0, 0, 0, 0.4);
   text-shadow: 0 0 0.5rem black;
+  cursor: pointer;
 }
-
+.key:hover {
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
 .playing {
   transform: scale(2);
   border-color: #ffc600;
