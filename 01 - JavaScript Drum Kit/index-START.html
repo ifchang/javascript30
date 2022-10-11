@@ -80,17 +80,12 @@
 
       keys.forEach((key) =>
         key.addEventListener("click", function (e) {
+          console.log(e);
           const dataKey = e.currentTarget.dataset.key;
           playSound(dataKey);
-          // console.log(e.currentTarget.dataset.key);
           // console.log(e.currentTarget.getAttribute("data-key"));
         })
       );
-
-      // key.addEventListener("click", function (key) {
-      //   console.log(key.target.querySelector(".key"));
-
-      // })
 
       keys.forEach((key) =>
         key.addEventListener(`transitionend`, removeTranstion)
