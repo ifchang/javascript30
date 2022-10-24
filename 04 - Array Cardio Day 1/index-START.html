@@ -88,6 +88,7 @@
         // }
       });
       console.table(sortLongevity);
+
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
       // const category = document.querySelector(".mw-category");
@@ -101,13 +102,16 @@
       //     return inventor.last;
       //   }
       // });
-
-      const boulevardsInParis = people.filter((inventor) => {
+      const category = document.querySelector(".mw-category");
+      const link = Array.from(document.querySelectorAll("a"));
+      const de = link.map((link) => link.textContent);
+      const boulevardsInParis = de.filter((inventor) => {
         if (inventor.includes("de")) {
           return inventor;
         }
       });
       console.table(boulevardsInParis);
+
       // 7. sort Exercise
       // Sort the people alphabetically by last name
       const lastNamelist = people.sort((a, b) => {
