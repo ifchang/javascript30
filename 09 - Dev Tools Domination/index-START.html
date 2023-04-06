@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+    <script>
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "hugo", age: 8 },
+      ];
+
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
+
+      // Regular
+      console.log("Bye~");
+      // Interpolated
+      console.log(`%s see u next time~~ `, "👻");
+      // Styled
+      console.log(
+        `%cHow do u turn this on?`,
+        "color: lightgreen; font-size: 20px; font-style: bold;"
+      );
+      // warning!
+      console.warn("something is wrong");
+
+      // Error :|
+      console.error("you can't leave your shoes outside the door");
+
+      // Info
+      // Can't work in Chrome and Act, but still work in Safari and Firefox
+      // https://github.com/evertdespiegeleer/console.info
+      console.info("dasfsfs sdfsafd sdfsdfa");
+      console.info(..."say something");
+
+      // Testing
+      const para = document.querySelector("p");
+      console.assert(para.classList.contains("BREAK"), "wrong");
+
+      // clearing
+      // console.clear();
+
+      // Viewing DOM Elements
+      console.log(para);
+      console.dir(para);
+      // Grouping together
+      dogs.forEach((dog) => {
+        console.groupCollapsed(`${dog.name}`);
+        console.log(dog.name);
+        console.log(`This is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old.`);
+        console.log(`${dog.name} is ${dog.age} dog years old`);
+        console.groupEnd(`${dog.name}`);
+      });
+
+      // counting
+      console.count(`Rex`);
+      console.count(`Rex`);
+      console.count(`Rex`);
+      // timing
+      console.time("fetching data");
+      fetch("https://api.github.com/users/wesbos")
+        .then((data) => data.json())
+        .then((data) => {
+          console.timeEnd("fetching data");
+          console.log(data);
+        });
+      // console.table(para);
+      console.table("table");
+      console.table(dogs);
+    </script>
+  </body>
+</html>
